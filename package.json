@@ -1,0 +1,28 @@
+{
+  "name": "note-taker-es5",
+  "version": "1.0.0",
+  "description": "A simple note taker app ported to es5",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/femipixels/note-taker-es5.git"
+  },
+  "keywords": [
+    "note",
+    "keep",
+    "file"
+  ],
+  "author": "Abolaji Femi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/femipixels/note-taker-es5/issues"
+  },
+  "homepage": "https://github.com/femipixels/note-taker-es5#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2"
+  }
+}
