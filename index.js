@@ -7,38 +7,40 @@
  * @author Abolaji Femi
  */
 
- function NoteApplication(author) {
+function NoteTaker(author) {
+
+     /**
+      * @TODO
+      */
      if (typeof(this.author) === 'undefined')  {
          this.author = 'Anonymous';
      } else {
          this.author = author.toString();
-         this.notes = [];
      }
- }
+     this.notes = [];
+    /**
+     * prototype function for creating a note
+     *
+     * @param {string} note_content
+     */
+    this.create = function(note_content) {
 
- /**
-  * prototype function for creating a note
-  *
-  * @param {string} note_content
-  */
-  NoteApplication.prototype.create = function(note_content) {
+    };
 
-  };
+    /**
+     * prototype function for listing all notes
+     *
+     */
+    this.listNotes = function() {
 
-  /**
-   * prototype function for listing all notes
-   *
-   */
-   NoteApplication.prototype.listNotes = function() {
+    };
 
-   };
-
-   /**
-    * prototype function for getting a note
-    *
-    * @param {int} note_id
-    */
-    NoteApplication.prototype.getNote = function(note_id) {
+    /**
+     * prototype function for getting a note
+     *
+     * @param {int} note_id
+     */
+    this.getNote = function(note_id) {
 
     };
 
@@ -48,30 +50,31 @@
      * @param {string} search_text
      *
      */
-     NoteApplication.prototype.search = function(search_text) {
+    this.search = function(search_text) {
 
-     };
+    };
 
-     /**
-      * prototype function for deleting/removing a note
-      *
-      * @param {int} note_id
-      *
-      */
-      NoteApplication.prototype.deleteNote = function(note_id) {
+    /**
+     * prototype function for deleting/removing a note
+     *
+     * @param {int} note_id
+     *
+     */
+    this.deleteNote = function(note_id) {
 
-      };
+    };
 
-      /**
-       * prototype function for editing a note
-       *
-       * @param {int} note_id
-       * @param {string} new_content
-       *
-       */
-       NoteApplication.prototype.editNote = function(note_id, new_content) {
+    /**
+     * prototype function for editing a note
+     *
+     * @param {int} note_id
+     * @param {string} new_content
+     *
+     */
+    this.editNote = function(note_id, new_content) {
 
-       };
+    };
 
-var noteTaker = NoteApplication;
-exports.noteTaker = noteTaker;
+}
+
+module.exports = NoteTaker;
