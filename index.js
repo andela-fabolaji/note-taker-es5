@@ -18,13 +18,14 @@ function NoteTaker(author) {
          this.author = author.toString();
      }
      this.notes = [];
+
     /**
      * prototype function for creating a note
      *
      * @param {string} note_content
      */
     this.create = function(note_content) {
-
+        note_content = note_content.toString();
     };
 
     /**

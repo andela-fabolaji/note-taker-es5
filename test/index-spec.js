@@ -22,4 +22,10 @@ describe('Note Taker Class', function(){
         });
     });
 
+    describe('Create method: takes in a string', function(){
+        it('', function(){
+            
+        });
+    });
+
 });
