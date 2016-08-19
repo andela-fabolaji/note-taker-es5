@@ -65,13 +65,13 @@ describe('Note Taker Class', function(){
         });
     });
 
-    describe('Create method', function(){ 
+    describe('CreateNote method', function(){ 
         it('Should successfully save note if a parameter is passed', function(){
-            assert(femi.create('Some message'), 'Note successfully created');
+            assert(femi.createNote('Some message'), 'Note successfully created');
         });
 
         it('Should return failure msg if no parameter is passed', function(){
-            assert(femi.create(), 'Cannot create an empty note!');
+            assert(femi.createNote(), 'Cannot create an empty note!');
         });
     });    
 
@@ -90,5 +90,30 @@ describe('Note Taker Class', function(){
             expect(femi.getNote(note_id)).to.equal('Invalid ID');
         });
     });
+
+    describe('DeleteNote method', function(){
+        var note_id = 5;
+
+        it('Should return error msg if no parameter is passed in', function(){
+            expect(femi.deleteNote()).to.equal('Please specify an ID');
+        });
+
+        it('Should return accept an integer', function(){
+            assert.typeOf(note_id, 'number');
+        });
+
+        it('Should return a string msg depending on success-failure', function(){
+            expect(femi.deleteNote(note_id)).to.equal('Invalid ID');
+            expect(femi.deleteNote(1)).to.equal('Note successfully deleted');
+        });
+    });
+
+    describe('EditNote Method', function(){
+        it('Should return error msg if note_id or new_content is present/correct', function(){
+
+        });
+    });
+
+
 
 });

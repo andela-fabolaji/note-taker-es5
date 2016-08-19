@@ -56,7 +56,7 @@ function NoteTaker(author) {
      *
      * @param {string} note_content
      */
-    this.create = function(note_content) {
+    this.createNote = function(note_content) {
         
         var msg;
         
@@ -101,7 +101,9 @@ function NoteTaker(author) {
     this.getNote = function(note_id) {
         var msg;
 
-        if (!note_id){
+        if (this.isEmptyNotes()){
+            msg = 'There are no notes yet';
+        } else if(!note_id) {
             msg = 'Please specify an ID';
         } else {
             note_id = parseInt(note_id);
@@ -131,7 +133,22 @@ function NoteTaker(author) {
      *
      */
     this.deleteNote = function(note_id) {
+        var msg;
 
+        if (this.isEmptyNotes()){
+            msg = 'There are no notes to delete';
+        } else if(!note_id) {
+            msg = 'Please specify an ID';
+        } else {
+            note_id = parseInt(note_id);
+
+            if (this.isValidNoteId(note_id)) {
+                this.notes.splice(note_id, 1);
+                msg = 'Note successfully deleted';
+            } else msg = 'Invalid ID';
+        }
+
+        return msg;
     };
 
     /**
