@@ -59,30 +59,24 @@ describe('Note Taker Class', function(){
         });
     });
 
+    describe('ListNotes method', function(){ 
+        it('Should return a string msg', function(){
+            expect(femi.listNotes()).to.equal('0\nAndela\'s bootcamp is dope\n\n1\nHello from the other side\n\nAbolaji Femi');
+        });
+    });
 
     describe('Create method', function(){ 
-        it('Should return success msg', function(){
+        it('Should successfully save note if a parameter is passed', function(){
             assert(femi.create('Some message'), 'Note successfully created');
         });
 
-        it('Should return failure msg', function(){
+        it('Should return failure msg if no parameter is passed', function(){
             assert(femi.create(), 'Cannot create an empty note!');
         });
-    });
-
-    describe('ListNotes method', function(){ 
-        it('Should return success msg', function(){
-            assert(femi.create('Some message'), 'Note successfully created');
-        });
-
-        it('Should return failure msg', function(){
-            assert(femi.create(), 'Cannot create an empty note!');
-        });
-    });
+    });    
 
     describe('GetNote method', function(){
         var note_id = 5;
-        var msg;
 
         it('Should return error msg if no parameter is passed in', function(){
             assert(femi.getNote(), 'Please specify an ID');

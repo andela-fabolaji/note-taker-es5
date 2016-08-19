@@ -12,7 +12,7 @@ function NoteTaker(author) {
      /**
       * @TODO
       */
-     if (typeof(this.author) === 'undefined')  {
+     if (typeof(author) === 'undefined')  {
          this.author = 'Anonymous';
      } else {
          this.author = author.toString();
@@ -77,7 +77,20 @@ function NoteTaker(author) {
      *
      */
     this.listNotes = function() {
+        var msg = '';
 
+        if (this.isEmptyNotes()) {
+            msg = 'There are no notes in the database';
+        } else {
+            for (var i = 0; i < this.notes.length; i++) {
+                msg += i.toString() + '\n';
+                msg += this.notes[i] + '\n\n';
+            }
+
+            msg += this.author;
+        }
+        
+        return msg;
     };
 
     /**
