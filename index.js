@@ -24,13 +24,30 @@ function NoteTaker(author) {
      *
      * @return {boolean} isEmpty
      */
-    this.isEmptyNoteDb = function() {
+    this.isEmptyNotes = function() {
         
         var isEmpty = false;
         
         if (this.notes.length < 1) isEmpty = true;
         
         return isEmpty;
+
+    };
+
+    /**
+     * prototype function to check if notes exit
+     *
+     * @return {boolean} isEmpty
+     */
+    this.isValidNoteId = function(note_id) {
+        
+        var isValid = true;
+        
+        if (isNaN(note_id) || note_id >= this.notes.length || 
+            note_id < 0 || note_id.toString().length === 0)
+            isValid = false;
+        
+        return isValid;
 
     };
 
