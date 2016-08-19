@@ -12,6 +12,7 @@ describe('Note Taker Class', function(){
     //inject test data
     femi.notes.push('Andela\'s bootcamp is dope');
     femi.notes.push('Hello from the other side');
+    femi.notes.push('Hello to Andela');
 
     describe('Testing for instantiation of class', function(){
         it('New Object should exist', function(){
@@ -145,7 +146,13 @@ describe('Note Taker Class', function(){
 
     describe('Search Method', function(){
 
-        it('', function())
+        it('Should not take a null search parameter', function(){
+            assert(femi.search(), 'Cannot search for empty string');
+        });
+
+        it('Should return an array of search results', function(){
+            assert.isTrue(Array.isArray(femi.search('andela')));
+        });
 
     });
 

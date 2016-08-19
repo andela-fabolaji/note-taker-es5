@@ -120,10 +120,28 @@ function NoteTaker(author) {
      * Method for searching for a text string
      *
      * @param {string} search_text
+     * @return {array} search_result
      *
      */
     this.search = function(search_text) {
+        var search_result = [];
 
+        if (search_text === null || search_text === '' 
+            || typeof(search_text) === 'undefined') {
+            return 'Cannot search for empty string';
+        }
+
+        search_text = search_text.toString();
+
+        for (var i = 0; i < this.notes.length; i++) {
+            if (this.notes[i].indexOf(search_text) >= 0) {
+                search_result.push(this.notes[i]);
+            }
+        }
+
+        if (search_result.length === 0) return 'No result found';
+
+        return search_result;
     };
 
     /**

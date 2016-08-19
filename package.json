@@ -4,7 +4,7 @@
   "description": "A simple note taker app ported to es5",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha -w"
+    "test": "nyc mocha -w"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/femipixels/note-taker-es5#readme",
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^3.0.2"
+    "mocha": "^3.0.2",
+    "nyc": "^8.1.0"
   }
 }
