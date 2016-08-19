@@ -27,10 +27,10 @@ describe('Note Taker Class', function(){
         });
     });
 
-    describe('isEmptyNoteDb method', function(){
+    describe('isEmptyNotes method', function(){
 
         it('Should return true if there are no notes in DB', function(){
-            expect(femi.isEmptyNoteDb()).to.equal(false);
+            expect(femi.isEmptyNotes()).to.equal(false);
         });
 
     });
