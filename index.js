@@ -20,12 +20,39 @@ function NoteTaker(author) {
      this.notes = [];
 
     /**
+     * prototype function to check if notes exit
+     *
+     * @return {boolean} isEmpty
+     */
+    this.isEmptyNoteDb = function() {
+        
+        var isEmpty = false;
+        
+        if (this.notes.length < 1) isEmpty = true;
+        
+        return isEmpty;
+
+    };
+
+    /**
      * prototype function for creating a note
      *
      * @param {string} note_content
      */
     this.create = function(note_content) {
-        note_content = note_content.toString();
+        
+        var msg;
+        
+        if (note_content && note_content.toString().length > 0) {
+            note_content = note_content.toString();
+            this.notes.push(note_content);
+            msg = 'Note successfully created';
+        } else {
+            msg = 'Cannot create an empty note!';
+        }
+        
+        return msg;
+
     };
 
     /**
@@ -42,7 +69,19 @@ function NoteTaker(author) {
      * @param {int} note_id
      */
     this.getNote = function(note_id) {
+        var msg;
 
+        if (!this.isEmptyNoteDb) {
+            if (note_id) {
+
+            }
+            note_id = parseInt(note_id);
+            msg = this.notes[note_id];
+        } else {
+            msg = 'Please specify an ID';
+        }
+
+        return msg;
     };
 
     /**
