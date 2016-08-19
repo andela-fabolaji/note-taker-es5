@@ -101,14 +101,14 @@ function NoteTaker(author) {
     this.getNote = function(note_id) {
         var msg;
 
-        if (!this.isEmptyNoteDb) {
-            if (note_id) {
-
-            }
-            note_id = parseInt(note_id);
-            msg = this.notes[note_id];
-        } else {
+        if (!note_id){
             msg = 'Please specify an ID';
+        } else {
+            note_id = parseInt(note_id);
+
+            if (this.isValidNoteId(note_id)) {
+                msg = this.notes[note_id];
+            } else msg = 'Invalid ID';
         }
 
         return msg;

@@ -79,7 +79,7 @@ describe('Note Taker Class', function(){
         var note_id = 5;
 
         it('Should return error msg if no parameter is passed in', function(){
-            assert(femi.getNote(), 'Please specify an ID');
+            expect(femi.getNote()).to.equal('Please specify an ID');
         });
 
         it('Should return accept an integer', function(){
@@ -87,7 +87,7 @@ describe('Note Taker Class', function(){
         });
 
         it('Should return a string msg', function(){
-            expect(femi.getNote(note_id)).to.equal(femi.notes[note_id]);
+            expect(femi.getNote(note_id)).to.equal('Invalid ID');
         });
     });
 
