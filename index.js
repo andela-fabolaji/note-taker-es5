@@ -151,7 +151,7 @@ function NoteTaker(author) {
         return msg;
     };
 
-    /**
+    /** 
      * Method for editing a note
      *
      * @param {int} note_id
@@ -159,7 +159,21 @@ function NoteTaker(author) {
      *
      */
     this.editNote = function(note_id, new_content) {
+        var msg;
 
+        if (this.isEmptyNotes()) {
+            msg = 'Can\'t update empty notes'; 
+        } else {
+            if (this.isValidNoteId(note_id) && new_content) {
+                note_id = parseInt(note_id);
+                this.notes[note_id] = new_content.toString();
+                msg = 'Note successfully updated';
+            } else {
+                msg = 'Invalid input';
+            }
+        }
+
+        return msg;
     };
 
 }
