@@ -20,7 +20,7 @@ function NoteTaker(author) {
      this.notes = [];
 
     /**
-     * prototype function to check if notes exit
+     * Method to check if notes exit
      *
      * @return {boolean} isEmpty
      */
@@ -35,9 +35,9 @@ function NoteTaker(author) {
     };
 
     /**
-     * prototype function to check if notes exit
+     * Method to check if note_id is valid
      *
-     * @return {boolean} isEmpty
+     * @return {boolean} isValid
      */
     this.isValidNoteId = function(note_id) {
         
@@ -52,7 +52,7 @@ function NoteTaker(author) {
     };
 
     /**
-     * prototype function for creating a note
+     * Method for creating a note
      *
      * @param {string} note_content
      */
@@ -73,7 +73,7 @@ function NoteTaker(author) {
     };
 
     /**
-     * prototype function for listing all notes
+     * Method for listing all notes
      *
      */
     this.listNotes = function() {
@@ -81,7 +81,7 @@ function NoteTaker(author) {
     };
 
     /**
-     * prototype function for getting a note
+     * Method for getting a note
      *
      * @param {int} note_id
      */
@@ -102,7 +102,7 @@ function NoteTaker(author) {
     };
 
     /**
-     * prototype function for searching for a text string
+     * Method for searching for a text string
      *
      * @param {string} search_text
      *
@@ -112,7 +112,7 @@ function NoteTaker(author) {
     };
 
     /**
-     * prototype function for deleting/removing a note
+     * Method for deleting/removing a note
      *
      * @param {int} note_id
      *
@@ -122,7 +122,7 @@ function NoteTaker(author) {
     };
 
     /**
-     * prototype function for editing a note
+     * Method for editing a note
      *
      * @param {int} note_id
      * @param {string} new_content
