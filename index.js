@@ -23,6 +23,7 @@ function NoteTaker(author) {
      * Method to check if notes exit
      *
      * @return {boolean} isEmpty
+     * 
      */
     this.isEmptyNotes = function() {
         
@@ -38,6 +39,7 @@ function NoteTaker(author) {
      * Method to check if note_id is valid
      *
      * @return {boolean} isValid
+     * 
      */
     this.isValidNoteId = function(note_id) {
         
@@ -55,6 +57,8 @@ function NoteTaker(author) {
      * Method for creating a note
      *
      * @param {string} note_content
+     * @return {string} msg
+     * 
      */
     this.createNote = function(note_content) {
         
@@ -75,51 +79,43 @@ function NoteTaker(author) {
     /**
      * Method for listing all notes
      *
+     * @return {array} notes
+     * 
      */
     this.listNotes = function() {
-        var msg = '';
+        var notes = [];
 
         if (this.isEmptyNotes()) {
-            msg = 'There are no notes in the database';
+            return 'There are no notes in the database';
         } else {
             for (var i = 0; i < this.notes.length; i++) {
-                msg += i.toString() + '\n';
-                msg += this.notes[i] + '\n\n';
+                notes.push(this.notes[i]);
             }
-
-            msg += this.author;
         }
         
-        return msg;
+        return notes;
     };
 
     /**
      * Method for getting a note
      *
      * @param {int} note_id
+     * @return {string} note_id
+     * 
      */
     this.getNote = function(note_id) {
-        var msg;
 
-        if (this.isEmptyNotes()){
-            msg = 'There are no notes yet';
-        } else if(!note_id) {
-            msg = 'Please specify an ID';
-        } else {
-            note_id = parseInt(note_id);
+        if (this.isValidNoteId(note_id)) {
+                return this.notes[note_id];
+        } else return 'Invalid ID';
 
-            if (this.isValidNoteId(note_id)) {
-                msg = this.notes[note_id];
-            } else msg = 'Invalid ID';
-        }
-
-        return msg;
     };
 
     /**
      * Method for searching for a text string
      *
      * @param {string} search_text
+     * @return {string}
      * @return {array} search_result
      *
      */
@@ -148,23 +144,16 @@ function NoteTaker(author) {
      * Method for deleting/removing a note
      *
      * @param {int} note_id
+     * @return {string} msg
      *
      */
     this.deleteNote = function(note_id) {
         var msg;
 
-        if (this.isEmptyNotes()){
-            msg = 'There are no notes to delete';
-        } else if(!note_id) {
-            msg = 'Please specify an ID';
-        } else {
-            note_id = parseInt(note_id);
-
-            if (this.isValidNoteId(note_id)) {
-                this.notes.splice(note_id, 1);
-                msg = 'Note successfully deleted';
-            } else msg = 'Invalid ID';
-        }
+        if (this.isValidNoteId(note_id)) {
+            this.notes.splice(note_id, 1);
+            msg = 'Note successfully deleted';
+        } else msg = 'Invalid ID';
 
         return msg;
     };
@@ -174,26 +163,17 @@ function NoteTaker(author) {
      *
      * @param {int} note_id
      * @param {string} new_content
-     *
+     * @return {string}
+     * 
      */
     this.editNote = function(note_id, new_content) {
-        var msg;
-
-        if (this.isEmptyNotes()) {
-            msg = 'Can\'t update empty notes'; 
-        } else {
-            if (this.isValidNoteId(note_id) && new_content) {
-                note_id = parseInt(note_id);
-                this.notes[note_id] = new_content.toString();
-                msg = 'Note successfully updated';
-            } else {
-                msg = 'Invalid input';
-            }
-        }
-
-        return msg;
+        if (this.isValidNoteId(note_id) && new_content) {
+            this.notes[note_id] = new_content.toString();
+            return 'Note successfully updated';
+        } 
     };
 
 }
+
 
 module.exports = NoteTaker;
