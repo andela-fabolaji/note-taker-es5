@@ -109,11 +109,45 @@ describe('Note Taker Class', function(){
     });
 
     describe('EditNote Method', function(){
-        it('Should return error msg if note_id or new_content is present/correct', function(){
 
+        var note_id = 1;
+        var new_content = 'Some very new content';
+
+        it('Should not accept null parameters', function(){
+            assert(femi.editNote(), 'Invalid Input');
         });
+
+        it('Should not accept single interger parameter', function(){
+            assert(femi.editNote(5), 'Invalid Input');
+        });
+
+        it('Should not accept single string parater', function(){
+            assert(femi.editNote('string'), 'Invalid Input');
+        });
+
+        it('Should accept both parameters as string and test for explicit conversion', function(){
+            assert(femi.editNote('0', '5 or string'), 'Note successfully updated');
+        });        
+
+        it('Should not accept parameter 1 as string', function(){
+            assert(femi.editNote('string', 5), 'Invalid input');
+        });
+
+        it('Should accept both parameters as integers', function(){
+            assert(femi.editNote(5, 5), 'Note successfully updated');
+        });
+
+        it('Should return a success message', function(){
+            expect(femi.editNote(note_id, new_content)).to.equal('Note successfully updated');
+        });        
+
     });
 
+    describe('Search Method', function(){
+
+        it('', function())
+
+    });
 
 
 });
