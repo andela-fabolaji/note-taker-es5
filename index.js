@@ -57,22 +57,17 @@ function NoteTaker(author) {
      * Method for creating a note
      *
      * @param {string} note_content
-     * @return {string} msg
+     * @return {string}
      * 
      */
     this.createNote = function(note_content) {
         
-        var msg;
-        
         if (note_content && note_content.toString().length > 0) {
-            note_content = note_content.toString();
-            this.notes.push(note_content);
-            msg = 'Note successfully created';
+            this.notes.push(note_content.toString());
+            return 'Note successfully created';
         } else {
-            msg = 'Cannot create an empty note!';
+            return 'Cannot create an empty note!';
         }
-        
-        return msg;
 
     };
 
@@ -101,6 +96,7 @@ function NoteTaker(author) {
      *
      * @param {int} note_id
      * @return {string} note_id
+     * @return {string}
      * 
      */
     this.getNote = function(note_id) {
@@ -148,14 +144,12 @@ function NoteTaker(author) {
      *
      */
     this.deleteNote = function(note_id) {
-        var msg;
 
         if (this.isValidNoteId(note_id)) {
             this.notes.splice(note_id, 1);
-            msg = 'Note successfully deleted';
-        } else msg = 'Invalid ID';
+            return 'Note successfully deleted';
+        } else return 'Invalid ID';
 
-        return msg;
     };
 
     /** 
@@ -170,7 +164,8 @@ function NoteTaker(author) {
         if (this.isValidNoteId(note_id) && new_content) {
             this.notes[note_id] = new_content.toString();
             return 'Note successfully updated';
-        } 
+        }
+        return 'Invalid Input';
     };
 
 }
