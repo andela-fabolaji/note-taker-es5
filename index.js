@@ -23,14 +23,14 @@ function NoteTaker(author) {
      * Method to check if notes exit
      *
      * @return {boolean} isEmpty
-     * 
+     *
      */
     this.isEmptyNotes = function() {
-        
+
         var isEmpty = false;
-        
+
         if (this.notes.length < 1) isEmpty = true;
-        
+
         return isEmpty;
 
     };
@@ -39,16 +39,16 @@ function NoteTaker(author) {
      * Method to check if note_id is valid
      *
      * @return {boolean} isValid
-     * 
+     *
      */
     this.isValidNoteId = function(note_id) {
-        
+
         var isValid = true;
-        
-        if (isNaN(note_id) || note_id >= this.notes.length || 
+
+        if (isNaN(note_id) || note_id >= this.notes.length ||
             note_id < 0 || note_id.toString().length === 0)
             isValid = false;
-        
+
         return isValid;
 
     };
@@ -58,10 +58,10 @@ function NoteTaker(author) {
      *
      * @param {string} note_content
      * @return {string}
-     * 
+     *
      */
     this.createNote = function(note_content) {
-        
+
         if (note_content && note_content.toString().length > 0) {
             this.notes.push(note_content.toString());
             return 'Note successfully created';
@@ -75,7 +75,7 @@ function NoteTaker(author) {
      * Method for listing all notes
      *
      * @return {array} notes
-     * 
+     *
      */
     this.listNotes = function() {
         var notes = [];
@@ -87,7 +87,7 @@ function NoteTaker(author) {
                 notes.push(this.notes[i]);
             }
         }
-        
+
         return notes;
     };
 
@@ -97,7 +97,7 @@ function NoteTaker(author) {
      * @param {int} note_id
      * @return {string} note_id
      * @return {string}
-     * 
+     *
      */
     this.getNote = function(note_id) {
 
@@ -118,7 +118,7 @@ function NoteTaker(author) {
     this.search = function(search_text) {
         var search_result = [];
 
-        if (search_text === null || search_text === '' 
+        if (search_text === null || search_text === ''
             || typeof(search_text) === 'undefined') {
             return 'Cannot search for empty string';
         }
@@ -152,13 +152,13 @@ function NoteTaker(author) {
 
     };
 
-    /** 
+    /**
      * Method for editing a note
      *
      * @param {int} note_id
      * @param {string} new_content
      * @return {string}
-     * 
+     *
      */
     this.editNote = function(note_id, new_content) {
         if (this.isValidNoteId(note_id) && new_content) {
