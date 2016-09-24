@@ -1,4 +1,4 @@
-# Note-taker-es5
+# Note-taker-es5 [![Build Status](https://travis-ci.org/femipixels/note-taker-es5.svg?branch=master)](https://travis-ci.org/femipixels/note-taker-es5)
 Note taker app ported to ES5
 
 #### About the App
